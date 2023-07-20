@@ -1,0 +1,28 @@
+
+
+.card {
+    margin: 0.5rem 0;
+    width: 50%;
+    height: 3rem;
+    padding: 0 0.5rem;
+    background-color: #cccccc23;
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    .date {
+        width: 20%;
+    }
+    .task {
+        width: 60%;
+        display: flex;
+        align-items: center;
+    }
+    input {
+        width: 10%;
+    }
+    button {
+        width: 10%;
+    }
+}

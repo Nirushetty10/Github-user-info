@@ -38,11 +38,16 @@ export default class Layout extends Component {
   callGithubApi = async (userName) => {
     try {
       let response = await fetch(`https://api.github.com/users/${userName}`);
+      if(!response.ok) {
+        throw new Error("User id is not found!")
+      }
       let data = await response.json();
       this.setState({
         data,
       });
-    } catch (error) {}
+    } catch (error) {
+      // console.error(error.message);
+    }
   };
 
   searchHandler = () => {

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #9D50BB;
+  background: linear-gradient(to bottom, #6E48AA, #9D50BB);
+}
+.contactForm {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    text-align: center;
+    color: rgb(255, 254, 254);
+    padding: 0.2rem 0;
+}
+.input-text {
+    width: 18rem;
+    height: 0.4rem;
+    margin: 0.5rem 0;
+    padding: 0.8rem 0.5rem;
+    color: inherit;
+    border: none;
+    border-radius: 0.2rem;
+    transition:  box-shadow 300ms;
+}
+.input-text::placeholder {
+    color: #656b6e;
+}
+.input-text:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem #5e35b1;
+}
+button {
+    margin: 0.5rem 0;
+    width: 19rem;
+    height: 2.5rem;
+    background-color: #ff6a88;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+butoon:hover {
+    background-color: #fc0436;
+}
+hr {
+    margin: 0 auto;
+    width: 95%;
+    border: 1px solid rgb(206,206,206);
+}
+.contact-book {
+    width: 100%;
+    max-height: 70vh;
+    padding-top: 2rem;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.contact-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    height: 2rem;
+    margin: 0.5rem 0;
+}
+.contact-item {
+    width: 35%;
+    height: 2rem;
+    background-color: #cccccc23;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.2rem;
+    color: #fff;
+}
+.deleteButton{
+    width: 20%;
+    height: 100%;
+    background-color: #ff6a88;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+.deleteButton:hover {
+    background-color: #e43357;
+}

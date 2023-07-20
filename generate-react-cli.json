@@ -1,0 +1,16 @@
+{
+  "usesTypeScript": false,
+  "usesStyledComponents": true,
+  "usesCssModule": false,
+  "cssPreprocessor": "css",
+  "testLibrary": "None",
+  "component": {
+    "default": {
+      "path": "src/components/GitHubApiProject",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    }
+  }
+}

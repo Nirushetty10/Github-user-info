@@ -17,11 +17,27 @@ import "./App.css"
 import Weather from './Components/Weather/Weather'
 import Form from './Components/Style/Form/Form'
 import Layout from './Components/GitHubApiProject/Layout/Layout'
+import HomePage from './Material-ui/Project/HomePage';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 export default class App extends Component {
   
   render() {
-    let data = [{id:1, name: "Raju", "mobile":9876543210}]
+    // let data = [{id:1, name: "Raju", "mobile":9876543210}]
+    const theme = createTheme({
+      typography: {
+        h3: {
+          fontSize: '1.5rem'
+        },
+        h5 : {
+          fontSize: '1.2rem'
+        },
+        h6: {
+          fontSize: '0.8rem',
+          color : "#bcb9b9"
+        }
+      },
+    });
     return (
       <div>
         {/* <Nav /> */}
@@ -40,7 +56,11 @@ export default class App extends Component {
          {/* <LinePlot data={data}/> */}
          {/* <Weather /> */}
          {/* <Form /> */}
-         <Layout />
+         {/* <Layout /> */}
+         <ThemeProvider theme={theme}>
+         <HomePage/>
+         </ThemeProvider>
+         
          
       </div>
     )
