@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import "./ContactManager.css";
 import ContactCard from '../ContactCard/ContactCard';
+import { connect } from 'react-redux';
+import { addContact ,deleteContact } from '../../redux/action';
 
-export default class ContactManager extends Component {
+ class ContactManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user : props.data,
       userName : "",
       mobile : "",
-      id : 2
+      id : 0
     }
   }
   updateUserName = (value)=>{
@@ -25,21 +26,23 @@ export default class ContactManager extends Component {
   }
 
   addUserHandler = ()=>{
-    const {user,userName,mobile,id} = this.state;
+    let {user,userName,mobile,id} = this.state;
     if(user === "" || mobile === "") {
       return;
     }
+    let newUser = {
+      userName ,
+      mobile,
+      id : id+1
+    }
     this.setState({
-      user : [...user, {id:id ,name:userName, mobile}],
-      userName : "",
-      mobile : "",
       id : id+1
     })
+    this.props.addContact(newUser)
 }
 
   deleteUser = (id)=>{
-    const updatedUsers = this.state.user.filter(user => user.id !== id);
-    this.setState({ user: updatedUsers });
+    this.props.deleteContact(id);
   }
 
   render() {
@@ -54,7 +57,7 @@ export default class ContactManager extends Component {
          <hr/>
        </div>
        <div className='contact-book'>
-           {this.state.user.map((data)=>{
+           {this.props.user.map((data)=>{
               return <ContactCard key={data.id} data={data} deleteUser={this.deleteUser}/>
            })}
        </div>
@@ -62,3 +65,9 @@ export default class ContactManager extends Component {
     )
   }
 }
+
+const propData = (state)=> ({
+   user : state.user
+})
+
+export default connect(propData,{addContact , deleteContact})(ContactManager);

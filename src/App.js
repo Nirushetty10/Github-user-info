@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./App.css"
 // import Nav from './Components/Zalora/Nav/Nav'
 // import Demo from './Components/Demo/Demo'
-// import ContactManager from './Components/ContactManager/ContactManager'
+import ContactManager from './Components/ContactManager/ContactManager'
 // import Timer from './Components/Timer/Timer'
 // import SearchBox from './Components/SearchBox/SearchBox'
 // import NavBar from './Components/NavBootstrap/NavBar/NavBar'
@@ -21,7 +21,7 @@ import "./App.css"
 // import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 // import AtMedia from './Components/AtMedia/AtMedia'
 // import MainPage from './Components/Food delivery/MainPage/MainPage.jsx'
-import Comment from './Components/ReduxTask/Comment';
+// import Comment from './Components/ReduxTask/Comment';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -49,7 +49,10 @@ export default class App extends Component {
         {/* <NavBar /> */}
         {/* <Nav /> */}
         {/* <Demo /> */}
-        {/* <ContactManager data={data}/> */}
+        <Provider store={store}>
+          <ContactManager/>
+        </Provider>
+        
         {/* <Timer /> */}
         {/* <SearchBox /> */}
         {/* <Todo />
@@ -67,9 +70,9 @@ export default class App extends Component {
          </ThemeProvider> */}
           {/* <AtMedia /> */}
          {/* <MainPage /> */}
-         <Provider store={store}>
+         {/* <Provider store={store}>
             <Comment />
-         </Provider>
+         </Provider> */}
          
       </div>
     )
