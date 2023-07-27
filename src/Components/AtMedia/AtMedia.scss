@@ -1,0 +1,33 @@
+.container {
+    height: 300px;
+    background-color: blueviolet;
+    color: #fff;
+}
+
+@media ((min-width : 500px) and ( max-width : 768px)) {
+    .container {
+        width: 80%;
+        background-color: rgb(224, 244, 8);
+    }
+}
+
+// @media (max-width : 768px) {
+//     .container {
+//         width: 20%;
+//         background-color: rgb(9, 78, 227);
+//     }
+// }
+
+// @media (max-width : 520px) {
+//     .container {
+//         width: 60%;
+//         background-color: rgb(240, 11, 152);
+//     }
+// }
+
+// @media (max-width : 360px) {
+//     .container {
+//         width: 80%;
+//         background-color: rgb(251, 7, 7);
+//     }
+// }

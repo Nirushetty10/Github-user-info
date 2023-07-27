@@ -12,7 +12,7 @@ const styles = (theme) => ({
     },
     paper: {
       padding: theme.spacing(1),
-      textAlign: 'center',
+      textAlign: 'start',
       color: theme.palette.text.secondary,
       backgroundColor: "#1E2A32",
       color : "#fff",

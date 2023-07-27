@@ -14,30 +14,35 @@ import "./App.css"
 // import MobileNumber from './Components/MobileNumber/MobileNumber'
 // import MyComponent from './Components/D3/D3'
 // import BarChart from './Components/D3/D3'
-import Weather from './Components/Weather/Weather'
-import Form from './Components/Style/Form/Form'
-import Layout from './Components/GitHubApiProject/Layout/Layout'
-import HomePage from './Material-ui/Project/HomePage';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+// import Weather from './Components/Weather/Weather'
+// import Form from './Components/Style/Form/Form'
+// import Layout from './Components/GitHubApiProject/Layout/Layout'
+// import HomePage from './Material-ui/Project/HomePage';
+// import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+// import AtMedia from './Components/AtMedia/AtMedia'
+// import MainPage from './Components/Food delivery/MainPage/MainPage.jsx'
+import Comment from './Components/ReduxTask/Comment';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 export default class App extends Component {
   
   render() {
     // let data = [{id:1, name: "Raju", "mobile":9876543210}]
-    const theme = createTheme({
-      typography: {
-        h3: {
-          fontSize: '1.5rem'
-        },
-        h5 : {
-          fontSize: '1.2rem'
-        },
-        h6: {
-          fontSize: '0.8rem',
-          color : "#bcb9b9"
-        }
-      },
-    });
+    // const theme = createTheme({
+    //   typography: {
+    //     h3: {
+    //       fontSize: '1.5rem'
+    //     },
+    //     h5 : {
+    //       fontSize: '1.2rem'
+    //     },
+    //     h6: {
+    //       fontSize: '0.8rem',
+    //       color : "#bcb9b9"
+    //     }
+    //   },
+    // });
     return (
       <div>
         {/* <Nav /> */}
@@ -57,10 +62,14 @@ export default class App extends Component {
          {/* <Weather /> */}
          {/* <Form /> */}
          {/* <Layout /> */}
-         <ThemeProvider theme={theme}>
+         {/* <ThemeProvider theme={theme}>
          <HomePage/>
-         </ThemeProvider>
-         
+         </ThemeProvider> */}
+          {/* <AtMedia /> */}
+         {/* <MainPage /> */}
+         <Provider store={store}>
+            <Comment />
+         </Provider>
          
       </div>
     )

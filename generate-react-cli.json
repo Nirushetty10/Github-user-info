@@ -1,12 +1,12 @@
 {
   "usesTypeScript": false,
-  "usesStyledComponents": true,
+  "usesStyledComponents": false,
   "usesCssModule": false,
-  "cssPreprocessor": "css",
+  "cssPreprocessor": "scss",
   "testLibrary": "None",
   "component": {
     "default": {
-      "path": "src/components/GitHubApiProject",
+      "path": "src/components/Food delivery",
       "withStyle": true,
       "withTest": false,
       "withStory": false,

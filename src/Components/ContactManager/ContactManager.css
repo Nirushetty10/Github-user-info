@@ -9,6 +9,7 @@ body {
   height: 100vh;
   background-color: #9D50BB;
   background: linear-gradient(to bottom, #6E48AA, #9D50BB);
+  
 }
 .contactForm {
     width: 100%;
@@ -27,6 +28,7 @@ h1 {
     height: 0.4rem;
     margin: 0.5rem 0;
     padding: 0.8rem 0.5rem;
+    box-sizing: border-box;
     color: inherit;
     border: none;
     border-radius: 0.2rem;
@@ -41,7 +43,7 @@ h1 {
 }
 button {
     margin: 0.5rem 0;
-    width: 19rem;
+    width: 18rem;
     height: 2.5rem;
     background-color: #ff6a88;
     border: none;

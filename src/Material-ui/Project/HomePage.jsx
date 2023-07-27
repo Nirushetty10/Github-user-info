@@ -17,7 +17,9 @@ import HomeIcon from "@material-ui/icons/Home";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
-import Profile from "../../Images/0132075_christopher-nolan.jpeg"
+import Profile from "../../Images/0132075_christopher-nolan.jpeg";
+import Akshay from "../../Images/akshay.jpg";
+import Max from "../../Images/max.jpg";
 
 const styles = (theme) => ({
   root: {
@@ -48,20 +50,38 @@ const styles = (theme) => ({
     height: "100%",
     display : "flex",
     flexDirection : "column",
-    alignItem : "center",
+    alignItems : "center",
     justifyContent : "center"
   },
   profile : {
-    width : "40px",
-    height : "40px",
+    width : "25px",
+    height : "25px",
     borderRadius : "50%",
     padding : 0
   },
   image : {
     width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      borderRadius : "50%"
+    height: "100%",
+    objectFit: "cover",
+    borderRadius : "50%"
+  },
+  instructorSecHeading : {
+    margin : "0.8rem 0",
+    height : "1.5rem",
+    display : "flex",
+    alignItems : "center",
+    justifyContent : "space-between"
+  },
+  instructorCard : {
+     display : "flex",
+     justifyContent : "space-between",
+     padding : 0
+  },
+  instructorImage : {
+    width : "60px",
+    height : "60px",
+    borderRadius : "50%",
+    padding : 0
   }
 });
 
@@ -72,7 +92,7 @@ class HomePage extends Component {
       <div className="layout">
         <div className="navigation-sec">
           <div className="nav-top-content">
-            <Container maxWidth="sm" style={{ paddingLeft: 0 }}>
+            <Container maxWidth="sm" style={{ paddingLeft: 0 , margin : 0 }}>
               <Typography variant="h3">Hello, Aaron!</Typography>
               <Typography variant="h6">Let's learn something today</Typography>
             </Container>
@@ -132,7 +152,28 @@ class HomePage extends Component {
           <div className="card">
             <CardBox />
           </div>
+          <div className="instructor-sec">
+          <Container className={classes.instructorSecHeading}>
+            <Typography variant="h5">Top Instructor</Typography>
+            <Typography variant="h6">Show More</Typography>
+          </Container>
+          <Container className={classes.instructorCard}>
+          <Container className={classes.instructorImage}>
+               <img src={Profile} className={classes.image} style={{width : "60px"}}/>
+               <Typography variant="h6" style={{whiteSpace: "nowrap"}}>Sultan Deler</Typography>
+          </Container>
+          <Container className={classes.instructorImage}>
+               <img src={Akshay} className={classes.image} style={{width : "60px"}}/>
+               <Typography variant="h6" style={{whiteSpace: "nowrap"}}>Akshay saini</Typography>
+          </Container>
+          <Container className={classes.instructorImage}>
+               <img src={Max} className={classes.image} style={{width : "60px"}}/>
+               <Typography variant="h6" style={{whiteSpace: "nowrap"}}>MaxMillian</Typography>
+          </Container>
+          </Container>
         </div>
+        </div>
+        
         <div className="bottom-sec">
           <Container className={classes.bottomContainer}>
             <HomeIcon/>
@@ -148,7 +189,7 @@ class HomePage extends Component {
           </Container>
           <Container className={classes.bottomContainer}>
             <Container className={classes.profile}>
-               <img src={Profile} className={classes.image} style={{width : "40px"}}/>
+               <img src={Profile} className={classes.image} style={{width : "25px"}}/>
             </Container>
              
             <Typography variant="h5">Profile</Typography>

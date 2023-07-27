@@ -22,6 +22,8 @@ const styles = (theme) => ({
     color: "#fff",
   },
   container : {
+    width : "100%",
+    padding: 0,
     display: "flex",
     justifyContent: "start",
     gap : "2rem"
