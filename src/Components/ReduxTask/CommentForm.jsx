@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { addComment } from '../../redux/action'; 
 import { connect } from 'react-redux';
+import "./CommentForm.scss";
 
 class CommentForm extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class CommentForm extends Component {
       this.props.addComment(newComment);
     }
   render() {
-    return <form onSubmit={this.formSubmitHandler}>
+    return <form className='first-form' onSubmit={this.formSubmitHandler}>
           <input type='text' placeholder='comment...' onChange={this.handleChange}/>
           <button type='submit'>Add</button>
       </form>

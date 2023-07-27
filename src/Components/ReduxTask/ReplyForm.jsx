@@ -20,7 +20,7 @@ class ReplyForm extends Component {
     formSubmitHandler = (e) => {
       e.preventDefault();
       const newReply = {
-        index: this.props.index,
+        parentId: this.props.id,
         id: Math.random().toString()*10000 ,
         reply : this.state.reply
       }
@@ -29,7 +29,7 @@ class ReplyForm extends Component {
   render() {
     return <form onSubmit={this.formSubmitHandler}>
           <input type='text' placeholder='reply...' onChange={this.handleChange}/>
-          <button type='submit'>Add</button>
+          <button type='submit' >Add</button>
       </form>
     
   }

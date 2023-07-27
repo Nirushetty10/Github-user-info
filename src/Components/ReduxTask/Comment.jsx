@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import CommentForm from './CommentForm'
 import { connect } from 'react-redux'
 import Reply from './Reply'
+import "./Comment.scss";
 
 class Comment extends Component {
   render() {
     return (
-      <div>
+      <div className='layout'>
         <CommentForm />
         <ul>
             {this.props.comments.map((value,index) => {
-                return <Reply key={index} index={index} id={value.id} comment={value.comment}/>
+                return <Reply key={value.id} index={index} id={value.id} comment={value.comment}/>
             })}
         </ul>
       </div>
