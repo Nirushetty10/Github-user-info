@@ -3,6 +3,7 @@ import "./ContactManager.css";
 import ContactCard from '../ContactCard/ContactCard';
 import { connect } from 'react-redux';
 import { addContact ,deleteContact } from '../../redux/action';
+import { mobileCount, selectContact, userNameCount } from '../../redux/selector';
 
  class ContactManager extends Component {
   constructor(props) {
@@ -26,19 +27,22 @@ import { addContact ,deleteContact } from '../../redux/action';
   }
 
   addUserHandler = ()=>{
-    let {user,userName,mobile,id} = this.state;
-    if(user === "" || mobile === "") {
+    let {userName,mobile,id} = this.state;
+    if(userName === "") {
       return;
     }
     let newUser = {
-      userName ,
-      mobile,
-      id : id+1
+      userName, 
+      mobile, 
+      id: id+1
     }
+   
+    this.props.addContact(newUser);
     this.setState({
+      userName : "",
+      mobile : "",
       id : id+1
     })
-    this.props.addContact(newUser)
 }
 
   deleteUser = (id)=>{
@@ -46,6 +50,7 @@ import { addContact ,deleteContact } from '../../redux/action';
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
        
@@ -61,13 +66,17 @@ import { addContact ,deleteContact } from '../../redux/action';
               return <ContactCard key={data.id} data={data} deleteUser={this.deleteUser}/>
            })}
        </div>
+       <h5>Total user count -{this.props.userNameCount}</h5>
+       <h5>Total mobile count - {this.props.mobileCount}</h5>
       </div>
     )
   }
 }
 
 const propData = (state)=> ({
-   user : state.user
+   user : selectContact(state),
+   userNameCount : userNameCount(state),
+   mobileCount : mobileCount(state)
 })
 
 export default connect(propData,{addContact , deleteContact})(ContactManager);

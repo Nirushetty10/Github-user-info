@@ -1,41 +1,41 @@
-import { Component } from "react";
+// import { Component } from "react";
 
-export const ADD_COMMENT = "ADD_COMMENT";
-export const DEL_COMMENT = "DEL_COMMENT";
-export const ADD_REPLY = "ADD_REPLY";
-export const DEL_REPLY = "DEL_REPLY";
+// export const ADD_COMMENT = "ADD_COMMENT";
+// export const DEL_COMMENT = "DEL_COMMENT";
+// export const ADD_REPLY = "ADD_REPLY";
+// export const DEL_REPLY = "DEL_REPLY";
 
-export const addComment = (comment) => ({
-    type : ADD_COMMENT,
-    payload : comment
-})
+// export const addComment = (comment) => ({
+//     type : ADD_COMMENT,
+//     payload : comment
+// })
 
-export const delComment = (id) => ({
-    type : DEL_COMMENT,
-    payload : id
-})
+// export const delComment = (id) => ({
+//     type : DEL_COMMENT,
+//     payload : id
+// })
 
-export const addReply = (comment) => ({
-    type : ADD_REPLY,
-    payload : comment
-})
+// export const addReply = (comment) => ({
+//     type : ADD_REPLY,
+//     payload : comment
+// })
 
-export const delReply = (data) => ({
-    type : DEL_REPLY,
-    payload : data
-})
+// export const delReply = (data) => ({
+//     type : DEL_REPLY,
+//     payload : data
+// })
 
 // contact manager
 
-// export const ADD_CONTACT = "ADD_CONTACT";
-// export const DEL_CONTACT = "DEL_CONTACT";
+export const ADD_CONTACT = "ADD_CONTACT";
+export const DEL_CONTACT = "DEL_CONTACT";
 
-// export const addContact = (user) => ({
-//     type : ADD_CONTACT,
-//     payload : user
-// })
+export const addContact = (user) => ({
+    type : ADD_CONTACT,
+    payload : user
+})
 
-// export const deleteContact = (id) => ({
-//     type : DEL_CONTACT,
-//     payload : id
-// })
+export const deleteContact = (id) => ({
+    type : DEL_CONTACT,
+    payload : id
+})

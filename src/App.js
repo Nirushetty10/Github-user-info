@@ -21,9 +21,13 @@ import "./App.css"
 // import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 // import AtMedia from './Components/AtMedia/AtMedia'
 // import MainPage from './Components/Food delivery/MainPage/MainPage.jsx'
-import Comment from './Components/ReduxTask/Comment';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+// import Comment from './Components/ReduxTask/Comment';
+// import { Provider } from 'react-redux';
+// import store from './redux/store';
+import Unsplash from './Components/Unsplash/Unsplash.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Form from './Components/axios/Form';
+import Display from './Components/axios/Display';
 
 export default class App extends Component {
   
@@ -70,10 +74,16 @@ export default class App extends Component {
          </ThemeProvider> */}
           {/* <AtMedia /> */}
          {/* <MainPage /> */}
-         <Provider store={store}>
+         {/* <Provider store={store}>
             <Comment />
-         </Provider>
-         
+         </Provider> */}
+         {/* <Unsplash /> */}
+         <BrowserRouter>
+           <Routes>
+              <Route path='/' element={<Form />}/>
+              <Route path='/display' element={<Display />}/>
+           </Routes>
+         </BrowserRouter>
       </div>
     )
   }
