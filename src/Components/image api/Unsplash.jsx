@@ -7,6 +7,7 @@ const DataContainer = styled.div`
   width: 100%;
   background-color: #d8858c;
   position: relative;
+  padding-bottom: 3rem;
 `;
 const TopSection = styled.div`
   width: 100%;
@@ -97,14 +98,27 @@ export default class Unsplash extends Component {
         });
       });
   };
+
   componentDidMount() {
     this.fetchData();
+    window.addEventListener("scroll" , this.handleLoad);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll")
+  }
+
   handleLoad = ()=> {
-    this.setState({
-      noOfElement : this.state.noOfElement+2
-    })
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+
+    if(scrollable - scrolled === 0) {
+      this.setState({
+        noOfElement : this.state.noOfElement+2
+      })
+    }
   }
+
   render() {
     const { desc, records } = this.state.data;
 
@@ -153,7 +167,6 @@ export default class Unsplash extends Component {
               );
             })}
         </BottomSection>
-        {this.state.noOfElement !== 10 && <Button onClick={this.handleLoad}>Load More</Button>}
       </DataContainer>
     );
   }

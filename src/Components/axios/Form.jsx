@@ -1,49 +1,110 @@
 import React, { Component } from "react";
-import { Button, FormGroup, Input, InputLabel, TextField } from "@material-ui/core";
-import { FormControl } from "react-bootstrap";
 import axios from "axios";
+import { Formik } from "formik";
+import "./Form.scss"
 
 export default class Form extends Component {
-    constructor(props) {
-      super(props)
-    
-      this.state = {
-        email : "",
-        password : ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      resData : ""
+    };
+  }
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  postData = async(data) => {
+    try {
+      let res = await axios.post("https://reqres.i/api/registration", data);
+      console.log(res);
+      if(res.status === 201) {
+        this.setState({
+          resData : "User Logged in successfully"
+        })
+      } else {
+        this.setState({
+          resData : "Something went wrong.. please login again"
+        })
       }
-    }
-    handleChange = (e) => {
-      const {name , value} = e.target;
+    } catch (error) {
       this.setState({
-        [name] : value
+        resData : "Something went wrong.. please login again"
       })
     }
+  };
 
-    postData = (data) => {
-        axios.post("https://reqres.in/api/registration" , data).then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-        })
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const data = {
-            email : this.state.email,
-            password : this.state.password
-        }
-        this.postData(data);
-    }
   render() {
     return (
-      <div>
-        <h1>Register</h1>
-        <form onSubmit={this.handleSubmit}>
-          <TextField label="email" value={this.state.email} name="email" onChange={this.handleChange}/>
-          <TextField label="password" value={this.state.password} type="password" name="password" onChange={this.handleChange}/>
-          <Button type="submit">Submit</Button>
-        </form>
+      <div className="login-page">
+        <h1 className="title">Login</h1>
+    
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          validate={(values) => {
+            const errors = {};
+            if (!values.email) {
+              errors.email = "Email is required";
+            } else if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            ) {
+              errors.email = "Invalid email address";
+            } else if (!values.password) {
+              errors.password = "Password is required";
+            } else if (values.password.length < 8) {
+              errors.password = "Password sould should be greater than 7 characters";
+            }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            this.postData(values);
+            values.email = ""
+            values.password = ""
+          }}
+        >
+          {({
+            values,
+            errors,
+            handleChange,
+            handleBlur,
+            touched,
+            handleSubmit,
+            isSubmitting,
+            /* and other goodies */
+          }) => (
+            <form onSubmit={handleSubmit} className="form">
+              <label htmlFor="email">email*</label>
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                className={touched.email && errors.email ? 'error' : ''}
+              />
+              <div className="emailError">{errors.email}</div> 
+              <label htmlFor="email">passwod*</label>
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                className={touched.password && errors.password ? 'error' : ''}
+              />
+              <div className="passwordError">{errors.password}</div>
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+            </form>
+          )}
+        </Formik>
+        <div className="serverResponse">{this.state.resData}</div>
       </div>
     );
   }

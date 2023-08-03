@@ -24,10 +24,10 @@ import "./App.css"
 // import Comment from './Components/ReduxTask/Comment';
 // import { Provider } from 'react-redux';
 // import store from './redux/store';
-import Unsplash from './Components/Unsplash/Unsplash.jsx';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Form from './Components/axios/Form';
-import Display from './Components/axios/Display';
+import Unsplash from './Components/image api/Unsplash.jsx';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Form from './Components/axios/Form';
+// import Display from './Components/axios/Display';
 
 export default class App extends Component {
   
@@ -77,13 +77,13 @@ export default class App extends Component {
          {/* <Provider store={store}>
             <Comment />
          </Provider> */}
-         {/* <Unsplash /> */}
-         <BrowserRouter>
+         <Unsplash />
+         {/* <BrowserRouter>
            <Routes>
               <Route path='/' element={<Form />}/>
               <Route path='/display' element={<Display />}/>
            </Routes>
-         </BrowserRouter>
+         </BrowserRouter> */}
       </div>
     )
   }
